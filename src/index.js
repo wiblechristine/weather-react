@@ -12,6 +12,7 @@ root.render(
   <StrictMode>
     <div className="App">
       <h1>Weather App</h1>
+      <p>https://github.com/wiblechristine/weather-react</p>
       <WeatherSearch />
     </div>
   </StrictMode>
