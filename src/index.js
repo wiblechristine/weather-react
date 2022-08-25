@@ -1,19 +1,10 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import "./index.css";
+import "bootstrap/dist/css/bootstrap.css";
+import App from "./App";
+import * as serviceWorker from "./serviceWorker";
 
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import WeatherSearch from "./WeatherSearch";
+ReactDOM.render(<App/>, document.getElementById("root"));
 
-import "./App.css";
-
-const rootElement = document.getElementById("root");
-const root = createRoot(rootElement);
-
-root.render(
-  <StrictMode>
-    <div className="App">
-      <h1>Weather App</h1>
-      <p>https://github.com/wiblechristine/weather-react</p>
-      <WeatherSearch />
-    </div>
-  </StrictMode>
-);
+serviceWorker.unregister();
