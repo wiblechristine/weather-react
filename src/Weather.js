@@ -16,14 +16,14 @@ export default function Weather(props) {
             description: response.data.weather[0].description,
             icon: response.data.weather[0].icon,
             wind: response.data.wind.speed,
-            city: response.data.name
+            city: response.data.name,
         });
     }
 
     function search() {
         const apiKey = "e9c65b5b23523086d1fb97fd91ac0263";
         let apiUrl =
-        `http://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`;
+        `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
         axios.get(apiUrl).then(handleResponse);
     }
 
@@ -62,6 +62,8 @@ export default function Weather(props) {
     </div>
     );
 } else {
+    search();
+    return <div className="Weather">Loading...</div>;
 
 
 }}
