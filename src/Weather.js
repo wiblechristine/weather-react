@@ -5,10 +5,10 @@ import WeatherForecast from "./WeatherForecast";
 import "./Weather.css";
 
 export default function Weather(props) {
-    const [weatherData, setWeatherData] = useState({ready: false});
+    const [weatherData, setWeatherData] = useState({ ready: false });
     const [city, setCity] = useState(props.defaultCity);
+    
     function handleResponse(response) {
-        console.log(response.data);
         setWeatherData({
             ready: true,
             coordinates: response.data.coord,
@@ -22,13 +22,6 @@ export default function Weather(props) {
         });
     }
 
-    function search() {
-        const apiKey = "e9c65b5b23523086d1fb97fd91ac0263";
-        let apiUrl =
-        `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-        axios.get(apiUrl).then(handleResponse);
-    }
-
     function handleSubmit(event) {
         event.preventDefault();
         search();
@@ -36,6 +29,13 @@ export default function Weather(props) {
 
     function handleCityChange(event) {
         setCity(event.target.value);
+    }
+    
+    function search() {
+        const apiKey = "e9c65b5b23523086d1fb97fd91ac0263";
+        let apiUrl =
+        `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+        axios.get(apiUrl).then(handleResponse);
     }
 
     if (weatherData.ready) {
@@ -66,7 +66,7 @@ export default function Weather(props) {
     );
 } else {
     search();
-    return <div className="Weather">Loading...</div>;
+    return "Loading..."
 
-
-}}
+    }
+}
