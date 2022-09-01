@@ -12,7 +12,8 @@ export default function App() {
       This project was created by Christine Wible and is {""}
       <a 
       href="https://github.com/wiblechristine/weather-react"
-      target="_blank">
+      target="_blank"
+      rel="noopener noreferrer">
       open-sourced on Github </a>
       </footer>
     </div>
